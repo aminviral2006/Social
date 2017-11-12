@@ -1,0 +1,42 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <title>CSS PopupMenu</title>
+        <style type="text/css">
+            div.popup
+            {
+                display:none;
+                position:absolute;
+                border:solid 1px black;
+                padding:-10px;
+                background-color: #5A8EC6;
+            }
+            a.popup:hover + div.popup
+            {
+                display:block;
+            }
+            div.popup:hover
+            {
+                display:block;
+            }
+            ul
+            {
+                list-style-type: none;
+            }
+        </style>
+    </head>
+    <body>
+        <a class="popup" href="#">Popup on hover</a>
+        <div class="popup">
+            <ul>
+                <li><a href="http://themacrosoft.com">Menu 1</a></li>
+                <li><a href="http://social.themacrosoft.com">Menu 2</a></li>
+                <li><a href="#">Menu 3</a></li>
+            </ul>
+        </div>
+        <p>
+            Other text here, should not be obscured on pops.
+        </p>
+    </body>
+</html>

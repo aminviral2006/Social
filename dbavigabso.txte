@@ -1,0 +1,1260 @@
+-- phpMyAdmin SQL Dump
+-- version 3.2.0.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Nov 17, 2011 at 06:43 PM
+-- Server version: 5.1.36
+-- PHP Version: 5.3.0
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Database: `dbavigabso`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbladdfriend`
+--
+
+CREATE TABLE IF NOT EXISTS `tbladdfriend` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'P.K.',
+  `MemberID` bigint(20) NOT NULL COMMENT 'F.K.',
+  `FriendID` bigint(20) NOT NULL COMMENT 'F.K.',
+  `CreatedDate` date NOT NULL,
+  `Approved` enum('A','P') NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `MemberID` (`MemberID`),
+  KEY `FriendID` (`FriendID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=binary ROW_FORMAT=FIXED AUTO_INCREMENT=56 ;
+
+--
+-- Dumping data for table `tbladdfriend`
+--
+
+INSERT INTO `tbladdfriend` (`id`, `MemberID`, `FriendID`, `CreatedDate`, `Approved`) VALUES
+(34, 34, 19, '2010-10-06', 'A'),
+(35, 19, 33, '2010-10-06', 'A'),
+(36, 19, 34, '2010-10-06', 'A'),
+(37, 33, 19, '2010-10-06', 'A'),
+(38, 34, 33, '2010-10-27', 'A'),
+(39, 33, 34, '2010-10-27', 'A'),
+(52, 34, 29, '2010-10-29', 'A'),
+(53, 29, 34, '2010-10-29', 'A'),
+(54, 29, 19, '2010-10-29', 'A'),
+(55, 19, 29, '2010-10-29', 'A');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblbookmark`
+--
+
+CREATE TABLE IF NOT EXISTS `tblbookmark` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `StuffID` bigint(20) NOT NULL,
+  `CreatedDate` date NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `StuffID` (`StuffID`)
+) ENGINE=InnoDB DEFAULT CHARSET=binary ROW_FORMAT=FIXED AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `tblbookmark`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblcategory`
+--
+
+CREATE TABLE IF NOT EXISTS `tblcategory` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'P.K.',
+  `Title` varbinary(500) NOT NULL,
+  `MemberID` bigint(20) NOT NULL,
+  `CreatedDate` date NOT NULL,
+  `Status` enum('A','I') NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `MemberID` (`MemberID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=binary ROW_FORMAT=DYNAMIC AUTO_INCREMENT=173 ;
+
+--
+-- Dumping data for table `tblcategory`
+--
+
+INSERT INTO `tblcategory` (`id`, `Title`, `MemberID`, `CreatedDate`, `Status`) VALUES
+(141, 'new stuff 1', 26, '2010-11-20', 'A'),
+(142, 'new stuff 2', 26, '2010-11-21', 'A'),
+(143, 'new stuff 3', 27, '2010-11-21', 'A'),
+(144, 'my new stuff image', 30, '2010-11-25', 'A'),
+(145, 'new stuff 4', 30, '2010-11-26', 'A'),
+(146, 'new stuff 5', 30, '2010-11-26', 'A'),
+(147, 'new stuff 6', 30, '2010-11-26', 'A'),
+(148, 'new stuff 7', 30, '2010-11-26', 'A'),
+(149, 'new stuff 8', 30, '2010-11-26', 'A'),
+(150, 'new stuff 9', 30, '2010-11-26', 'A'),
+(151, 'new stuff 10', 30, '2010-11-26', 'A'),
+(152, 'new stuff 11', 30, '2010-11-26', 'A'),
+(153, 'new stuff 12', 30, '2010-11-26', 'A'),
+(154, 'cars 1', 30, '2010-11-26', 'A'),
+(155, 'cars 2', 30, '2010-11-26', 'A'),
+(156, 'new stuff 13', 30, '2010-11-27', 'A'),
+(157, 'new stuff 14', 30, '2010-11-27', 'A'),
+(158, 'new stuff 15', 30, '2010-11-27', 'A'),
+(159, 'new stuff 16', 30, '2010-11-27', 'A'),
+(160, 'new stuff 17', 30, '2010-11-27', 'A'),
+(161, 'new stuff 20', 33, '2010-11-29', 'A'),
+(162, 'new stuf 254', 30, '2010-11-30', 'A'),
+(163, 'new stuff 26', 30, '2010-11-30', 'A'),
+(164, 'new stuff 27', 30, '2010-11-30', 'A'),
+(165, 'Hello from sumit', 33, '2010-12-07', 'A'),
+(166, 'kankotri', 26, '2010-12-09', 'A'),
+(167, 'testing upload image problem', 30, '2010-12-09', 'A'),
+(168, 'new default image testing', 26, '2010-12-11', 'A'),
+(169, 'New stuff from sumit', 26, '2011-05-01', 'A'),
+(170, 'New Testing Stuff', 26, '2011-07-17', 'A'),
+(171, 'New Testing Stuffss', 26, '2011-07-17', 'A'),
+(172, '???', 19, '2011-09-24', 'A');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblcountry`
+--
+
+CREATE TABLE IF NOT EXISTS `tblcountry` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `CountryName` varbinary(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT AUTO_INCREMENT=194 ;
+
+--
+-- Dumping data for table `tblcountry`
+--
+
+INSERT INTO `tblcountry` (`id`, `CountryName`) VALUES
+(1, 'Afghanistan'),
+(2, 'Albania'),
+(3, 'Algeria'),
+(4, 'Andorra'),
+(5, 'Angola'),
+(6, 'Antigua and Barbuda'),
+(7, 'Argentina'),
+(8, 'Armenia'),
+(9, 'Australia'),
+(10, 'Austria'),
+(11, 'Azerbaijan'),
+(12, 'Bahamas'),
+(13, 'Bahrain'),
+(14, 'Bangladesh'),
+(15, 'Barbados'),
+(16, 'Belarus'),
+(17, 'Belgium'),
+(18, 'Belize'),
+(19, 'Benin'),
+(20, 'Bhutan'),
+(21, 'Bolivia'),
+(22, 'Bosnia and Herzegovina'),
+(23, 'Botswana'),
+(24, 'Brazil'),
+(25, 'Brunei'),
+(26, 'Bulgaria'),
+(27, 'Burkina Faso'),
+(28, 'Burundi'),
+(29, 'Cambodia'),
+(30, 'Cameroon'),
+(31, 'Canada'),
+(32, 'Cape Verde'),
+(33, 'Central African Republic'),
+(34, 'Chad'),
+(35, 'Chile'),
+(36, 'China'),
+(37, 'Colombi'),
+(38, 'Comoros'),
+(39, 'Congo (Brazzaville)'),
+(40, 'Congo'),
+(41, 'Costa Rica'),
+(42, 'Cote d''Ivoire'),
+(43, 'Croatia'),
+(44, 'Cuba'),
+(45, 'Cyprus'),
+(46, 'Czech Republic'),
+(47, 'Denmark'),
+(48, 'Djibouti'),
+(49, 'Dominica'),
+(50, 'Dominican Republic'),
+(51, 'East Timor (Timor Timur)'),
+(52, 'Ecuador'),
+(53, 'Egypt'),
+(54, 'El Salvador'),
+(55, 'Equatorial Guinea'),
+(56, 'Eritrea'),
+(57, 'Estonia'),
+(58, 'Ethiopia'),
+(59, 'Fiji'),
+(60, 'Finland'),
+(61, 'France'),
+(62, 'Gabon'),
+(63, 'Gambia, The'),
+(64, 'Georgia'),
+(65, 'Germany'),
+(66, 'Ghana'),
+(67, 'Greece'),
+(68, 'Grenada'),
+(69, 'Guatemala'),
+(70, 'Guinea'),
+(71, 'Guinea-Bissau'),
+(72, 'Guyana'),
+(73, 'Haiti'),
+(74, 'Honduras'),
+(75, 'Hungary'),
+(76, 'Iceland'),
+(77, 'India'),
+(78, 'Indonesia'),
+(79, 'Iran'),
+(80, 'Iraq'),
+(81, 'Ireland'),
+(82, 'Israel'),
+(83, 'Italy'),
+(84, 'Jamaica'),
+(85, 'Japan'),
+(86, 'Jordan'),
+(87, 'Kazakhstan'),
+(88, 'Kenya'),
+(89, 'Kiribati'),
+(90, 'Korea, North'),
+(91, 'Korea, South'),
+(92, 'Kuwait'),
+(93, 'Kyrgyzstan'),
+(94, 'Laos'),
+(95, 'Latvia'),
+(96, 'Lebanon'),
+(97, 'Lesotho'),
+(98, 'Liberia'),
+(99, 'Libya'),
+(100, 'Liechtenstein'),
+(101, 'Lithuania'),
+(102, 'Luxembourg'),
+(103, 'Macedonia'),
+(104, 'Madagascar'),
+(105, 'Malawi'),
+(106, 'Malaysia'),
+(107, 'Maldives'),
+(108, 'Mali'),
+(109, 'Malta'),
+(110, 'Marshall Islands'),
+(111, 'Mauritania'),
+(112, 'Mauritius'),
+(113, 'Mexico'),
+(114, 'Micronesia'),
+(115, 'Moldova'),
+(116, 'Monaco'),
+(117, 'Mongolia'),
+(118, 'Morocco'),
+(119, 'Mozambique'),
+(120, 'Myanmar'),
+(121, 'Namibia'),
+(122, 'Nauru'),
+(123, 'Nepa'),
+(124, 'Netherlands'),
+(125, 'New Zealand'),
+(126, 'Nicaragua'),
+(127, 'Niger'),
+(128, 'Nigeria'),
+(129, 'Norway'),
+(130, 'Oman'),
+(131, 'Pakistan'),
+(132, 'Palau'),
+(133, 'Panama'),
+(134, 'Papua New Guinea'),
+(135, 'Paraguay'),
+(136, 'Peru'),
+(137, 'Philippines'),
+(138, 'Poland'),
+(139, 'Portugal'),
+(140, 'Qatar'),
+(141, 'Romania'),
+(142, 'Russia'),
+(143, 'Rwanda'),
+(144, 'Saint Kitts and Nevis'),
+(145, 'Saint Lucia'),
+(146, 'Saint Vincent'),
+(147, 'Samoa'),
+(148, 'San Marino'),
+(149, 'Sao Tome and Principe'),
+(150, 'Saudi Arabia'),
+(151, 'Senegal'),
+(152, 'Serbia and Montenegro'),
+(153, 'Seychelles'),
+(154, 'Sierra Leone'),
+(155, 'Singapore'),
+(156, 'Slovakia'),
+(157, 'Slovenia'),
+(158, 'Solomon Islands'),
+(159, 'Somalia'),
+(160, 'South Africa'),
+(161, 'Spain'),
+(162, 'Sri Lanka'),
+(163, 'Sudan'),
+(164, 'Suriname'),
+(165, 'Swaziland'),
+(166, 'Sweden'),
+(167, 'Switzerland'),
+(168, 'Syria'),
+(169, 'Taiwan'),
+(170, 'Tajikistan'),
+(171, 'Tanzania'),
+(172, 'Thailand'),
+(173, 'Togo'),
+(174, 'Tonga'),
+(175, 'Trinidad and Tobago'),
+(176, 'Tunisia'),
+(177, 'Turkey'),
+(178, 'Turkmenistan'),
+(179, 'Tuvalu'),
+(180, 'Uganda'),
+(181, 'Ukraine'),
+(182, 'United Arab Emirates'),
+(183, 'United Kingdom'),
+(184, 'United States'),
+(185, 'Uruguay'),
+(186, 'Uzbekistan'),
+(187, 'Vanuatu'),
+(188, 'Vatican City'),
+(189, 'Venezuela'),
+(190, 'Vietnam'),
+(191, 'Yemen'),
+(192, 'Zambia'),
+(193, 'Zimbabwe');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbllogininfo`
+--
+
+CREATE TABLE IF NOT EXISTS `tbllogininfo` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `MemberID` bigint(20) NOT NULL,
+  `LoginTime` datetime NOT NULL,
+  `LoginStatus` enum('O','F') NOT NULL,
+  `IPAddress` varchar(15) NOT NULL,
+  `LoginTimeStamp` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `MemberID` (`MemberID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=127 ;
+
+--
+-- Dumping data for table `tbllogininfo`
+--
+
+INSERT INTO `tbllogininfo` (`id`, `MemberID`, `LoginTime`, `LoginStatus`, `IPAddress`, `LoginTimeStamp`) VALUES
+(18, 30, '2010-12-01 17:57:12', 'F', '127.0.0.1', 1291206432),
+(19, 30, '2010-12-01 20:23:07', 'F', '127.0.0.1', 1291215187),
+(20, 30, '2010-12-01 20:23:17', 'F', '127.0.0.1', 1291215197),
+(21, 30, '2010-12-02 09:22:00', 'F', '127.0.0.1', 1291261920),
+(22, 30, '2010-12-02 11:27:10', 'F', '127.0.0.1', 1291269430),
+(23, 26, '2010-12-02 13:10:46', 'F', '127.0.0.1', 1291275646),
+(24, 34, '2010-12-02 20:10:00', 'F', '127.0.0.1', 1291300800),
+(25, 26, '2010-12-03 19:13:52', 'F', '127.0.0.1', 1291383832),
+(26, 26, '2010-12-03 19:14:02', 'F', '127.0.0.1', 1291383842),
+(27, 26, '2010-12-03 19:17:27', 'F', '127.0.0.1', 1291384047),
+(28, 28, '2010-12-03 20:33:06', 'F', '127.0.0.1', 1291388586),
+(29, 26, '2010-12-03 21:04:39', 'F', '127.0.0.1', 1291390479),
+(30, 30, '2010-12-03 21:15:12', 'F', '127.0.0.1', 1291391112),
+(31, 34, '2010-12-05 16:05:56', 'F', '127.0.0.1', 1291545356),
+(32, 26, '2010-12-05 16:17:30', 'F', '127.0.0.1', 1291546050),
+(33, 26, '2010-12-06 10:57:36', 'F', '127.0.0.1', 1291613256),
+(34, 26, '2010-12-06 10:58:42', 'F', '127.0.0.1', 1291613322),
+(35, 30, '2010-12-06 17:54:12', 'F', '127.0.0.1', 1291638252),
+(36, 26, '2010-12-06 18:47:52', 'F', '127.0.0.1', 1291641472),
+(37, 34, '2010-12-06 19:43:49', 'F', '127.0.0.1', 1291644829),
+(38, 33, '2010-12-07 20:00:25', 'F', '127.0.0.1', 1291732225),
+(39, 26, '2010-12-09 13:35:08', 'F', '127.0.0.1', 1291881908),
+(40, 26, '2010-12-09 15:06:44', 'F', '127.0.0.1', 1291887404),
+(41, 26, '2010-12-09 17:42:21', 'F', '127.0.0.1', 1291896741),
+(42, 30, '2010-12-09 18:53:41', 'F', '127.0.0.1', 1291901021),
+(43, 26, '2010-12-11 14:05:01', 'F', '127.0.0.1', 1292056501),
+(44, 26, '2010-12-11 14:05:09', 'F', '127.0.0.1', 1292056509),
+(45, 30, '2010-12-11 14:10:28', 'F', '127.0.0.1', 1292056828),
+(46, 26, '2010-12-11 14:17:43', 'F', '127.0.0.1', 1292057263),
+(47, 26, '2010-12-11 20:23:27', 'F', '127.0.0.1', 1292079207),
+(48, 26, '2010-12-11 20:36:38', 'F', '127.0.0.1', 1292079998),
+(49, 30, '2010-12-11 20:36:57', 'F', '127.0.0.1', 1292080017),
+(50, 26, '2010-12-11 20:37:31', 'F', '127.0.0.1', 1292080051),
+(51, 26, '2010-12-11 20:40:16', 'F', '127.0.0.1', 1292080216),
+(52, 30, '2010-12-12 16:30:48', 'F', '127.0.0.1', 1292151648),
+(53, 30, '2010-12-12 16:55:52', 'F', '127.0.0.1', 1292153152),
+(54, 34, '2010-12-12 21:51:39', 'F', '127.0.0.1', 1292170899),
+(55, 26, '2010-12-12 21:55:18', 'F', '127.0.0.1', 1292171118),
+(56, 26, '2010-12-12 22:21:52', 'F', '127.0.0.1', 1292172712),
+(57, 26, '2010-12-13 10:29:57', 'F', '127.0.0.1', 1292216397),
+(58, 26, '2010-12-13 10:30:04', 'F', '127.0.0.1', 1292216404),
+(59, 26, '2010-12-13 10:52:15', 'F', '127.0.0.1', 1292217735),
+(60, 34, '2010-12-13 16:05:51', 'F', '127.0.0.1', 1292236551),
+(61, 26, '2010-12-13 16:15:33', 'F', '127.0.0.1', 1292237133),
+(62, 26, '2010-12-14 10:33:43', 'F', '127.0.0.1', 1292303023),
+(63, 26, '2010-12-14 10:33:55', 'F', '127.0.0.1', 1292303035),
+(64, 26, '2010-12-15 11:52:03', 'F', '127.0.0.1', 1292394123),
+(65, 26, '2010-12-15 15:56:51', 'F', '127.0.0.1', 1292408811),
+(66, 26, '2010-12-15 16:49:09', 'F', '127.0.0.1', 1292411949),
+(67, 30, '2010-12-15 17:46:44', 'F', '127.0.0.1', 1292415404),
+(68, 30, '2010-12-15 18:16:11', 'F', '127.0.0.1', 1292417171),
+(69, 30, '2010-12-15 20:33:09', 'F', '127.0.0.1', 1292425389),
+(70, 30, '2010-12-15 20:33:18', 'F', '127.0.0.1', 1292425398),
+(71, 30, '2010-12-15 20:36:22', 'F', '127.0.0.1', 1292425582),
+(72, 30, '2010-12-15 20:36:31', 'F', '127.0.0.1', 1292425591),
+(73, 30, '2010-12-15 20:44:47', 'F', '127.0.0.1', 1292426087),
+(74, 30, '2010-12-16 16:54:51', 'F', '127.0.0.1', 1292498691),
+(75, 30, '2010-12-16 16:55:00', 'F', '127.0.0.1', 1292498700),
+(76, 30, '2010-12-16 16:59:57', 'F', '127.0.0.1', 1292498997),
+(77, 30, '2010-12-16 17:57:15', 'F', '127.0.0.1', 1292502435),
+(78, 30, '2010-12-16 18:00:37', 'F', '127.0.0.1', 1292502637),
+(79, 30, '2010-12-16 18:01:08', 'F', '127.0.0.1', 1292502668),
+(80, 30, '2010-12-16 18:05:03', 'F', '127.0.0.1', 1292502903),
+(81, 30, '2010-12-16 18:05:12', 'F', '127.0.0.1', 1292502912),
+(82, 30, '2010-12-16 18:34:20', 'F', '127.0.0.1', 1292504660),
+(83, 30, '2010-12-16 18:39:52', 'F', '127.0.0.1', 1292504992),
+(84, 30, '2010-12-16 18:59:11', 'F', '127.0.0.1', 1292506151),
+(85, 30, '2010-12-16 19:32:03', 'F', '127.0.0.1', 1292508123),
+(86, 26, '2010-12-16 20:10:02', 'F', '127.0.0.1', 1292510402),
+(87, 34, '2010-12-17 16:11:54', 'F', '127.0.0.1', 1292582514),
+(88, 30, '2010-12-17 18:15:35', 'F', '127.0.0.1', 1292589935),
+(89, 30, '2010-12-17 18:51:32', 'F', '127.0.0.1', 1292592092),
+(90, 34, '2010-12-18 11:48:17', 'F', '127.0.0.1', 1292653097),
+(91, 34, '2010-12-18 12:20:59', 'F', '127.0.0.1', 1292655059),
+(92, 26, '2011-02-18 22:26:21', 'F', '127.0.0.1', 1298048181),
+(93, 26, '2011-03-19 17:14:30', 'F', '127.0.0.1', 1300535070),
+(94, 26, '2011-04-29 08:50:26', 'F', '127.0.0.1', 1304047226),
+(95, 26, '2011-05-01 11:14:26', 'F', '127.0.0.1', 1304228666),
+(96, 26, '2011-05-03 22:40:03', 'F', '127.0.0.1', 1304442603),
+(97, 26, '2011-05-03 23:07:03', 'F', '127.0.0.1', 1304444223),
+(98, 26, '2011-05-03 23:21:10', 'F', '127.0.0.1', 1304445070),
+(99, 26, '2011-05-05 21:12:52', 'F', '127.0.0.1', 1304610172),
+(100, 26, '2011-05-11 22:46:52', 'F', '127.0.0.1', 1305134212),
+(101, 26, '2011-05-11 23:02:12', 'F', '127.0.0.1', 1305135132),
+(102, 26, '2011-05-24 20:41:33', 'F', '127.0.0.1', 1306249893),
+(103, 26, '2011-05-25 21:08:15', 'F', '127.0.0.1', 1306337895),
+(104, 26, '2011-05-26 21:24:02', 'F', '127.0.0.1', 1306425242),
+(105, 26, '2011-06-05 11:33:24', 'F', '127.0.0.1', 1307253804),
+(106, 26, '2011-06-08 20:50:52', 'F', '127.0.0.1', 1307546452),
+(107, 26, '2011-07-03 10:52:57', 'F', '127.0.0.1', 1309670577),
+(108, 26, '2011-07-03 11:36:32', 'F', '127.0.0.1', 1309673192),
+(109, 26, '2011-07-10 05:58:26', 'F', '49.156.86.158', 1310291906),
+(110, 26, '2011-07-10 06:00:54', 'F', '49.156.86.158', 1310292054),
+(111, 26, '2011-07-13 14:52:55', 'F', '49.156.101.58', 1310583175),
+(112, 26, '2011-07-15 16:14:33', 'F', '49.156.86.239', 1310760873),
+(113, 26, '2011-07-17 03:06:57', 'F', '49.156.69.218', 1310886417),
+(114, 26, '2011-07-17 11:24:46', 'F', '49.156.77.88', 1310916286),
+(115, 26, '2011-07-17 11:43:55', 'F', '49.156.77.88', 1310917435),
+(116, 26, '2011-07-17 12:12:05', 'F', '49.156.77.88', 1310919125),
+(117, 26, '2011-07-17 12:33:46', 'F', '49.156.77.88', 1310920426),
+(118, 26, '2011-07-17 12:35:00', 'F', '49.156.77.88', 1310920500),
+(119, 36, '2011-07-17 13:51:30', 'F', '180.214.130.1', 1310925090),
+(120, 26, '2011-07-19 14:03:46', 'F', '49.156.97.146', 1311098626),
+(121, 26, '2011-09-19 14:20:49', 'F', '49.156.98.137', 1316456449),
+(122, 19, '2011-09-19 16:09:29', 'F', '49.156.65.130', 1316462969),
+(123, 19, '2011-09-21 23:46:35', 'F', '113.20.17.25', 1316663195),
+(124, 19, '2011-09-23 19:35:29', 'F', '127.0.0.1', 1316831729),
+(125, 26, '2011-09-23 19:37:10', 'F', '127.0.0.1', 1316831830),
+(126, 19, '2011-09-23 20:33:36', 'O', '127.0.0.1', 1316835216);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblmembercomment`
+--
+
+CREATE TABLE IF NOT EXISTS `tblmembercomment` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'P.K.',
+  `MemberID` bigint(20) NOT NULL COMMENT 'F.K.',
+  `FriendID` bigint(20) NOT NULL,
+  `Comment` longblob NOT NULL,
+  `CreatedDate` date NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `MemberID` (`MemberID`),
+  KEY `FriendID` (`FriendID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT AUTO_INCREMENT=17 ;
+
+--
+-- Dumping data for table `tblmembercomment`
+--
+
+INSERT INTO `tblmembercomment` (`id`, `MemberID`, `FriendID`, `Comment`, `CreatedDate`) VALUES
+(2, 19, 34, 0x68692073616e6a61792c207468697320697320766972616c, '2010-10-08'),
+(3, 19, 19, 0x68692066726f6d20766972616c, '2010-10-08'),
+(4, 19, 34, 0x68692073616e6a61792c20686f772061726520796f753f, '2010-10-08'),
+(5, 34, 34, 0x48692c204920616d2073616e6a61792e20636f6d6d656e74696e67206f6e206d79206f776e2070726f66696c65, '2010-10-08'),
+(6, 34, 19, 0x686920766972616c2e20746869732069732073616e6a61792066726f6d20626f6d626179, '2010-10-08'),
+(7, 32, 32, 0x48656c6c6f2e2053656c662074657374696e6720636f6d6d656e7473, '2010-10-16'),
+(8, 33, 33, 0x3c703e68656c6c6f3c2f703e0d0a3c703e66726f6d2066636b3c2f703e, '2010-10-27'),
+(9, 33, 33, 0x0d0a0d0a68656c6c6f0d0a0d0a66726f6d2066636b0d0a, '2010-10-27'),
+(10, 33, 33, 0x3c703e68656c6c6f3c2f703e0d0a3c703e66726f6d2066636b3c2f703e, '2010-10-27'),
+(11, 33, 33, 0x3c703e616761696e206e657720636f6d6d656e74733c2f703e0d0a3c703e66726f3c7370616e207374796c653d22636f6c6f723a2072676228302c20302c20323535293b223e6d2066636b65643c2f7370616e3e69746f723c2f703e, '2010-10-27'),
+(12, 33, 33, 0x3c703e4920616d203c2f703e0d0a3c703e77726974696e6720636f6d6d656e74733c2f703e, '2010-10-27'),
+(13, 34, 33, 0x3c703e636f6d6d656e743c2f703e0d0a3c703e66726f6d2073616e6a61793c2f703e0d0a3c703e3c696d67207372633d22687474703a2f2f6c6f63616c686f73742f617669676162736f2f46434b456469746f722f656469746f722f696d616765732f736d696c65792f6d736e2f7468756d62735f75702e6769662220616c743d2222202f3e3c2f703e, '2010-10-27'),
+(14, 26, 26, 0x3c703e4920616d2061732049266e6273703b616d3c2f703e, '2011-05-01'),
+(15, 19, 19, 0x3c703e3c7370616e206c616e673d2269772220636c6173733d2273686f72745f74657874222069643d22726573756c745f626f78223e3c7370616e20636c6173733d22687073223ed7a9d79cd795d79d20d79cd79bd795d79cd79d3c2f7370616e3e3c2f7370616e3e3c2f703e, '2011-09-24'),
+(16, 19, 33, 0x3c7370616e206c616e673d2269772220636c6173733d2273686f72745f74657874222069643d22726573756c745f626f78223e3c7370616e20636c6173733d22687073223ed79ed793d7a23c2f7370616e3e3c2f7370616e3e, '2011-09-24');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblmemberprofile`
+--
+
+CREATE TABLE IF NOT EXISTS `tblmemberprofile` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'P.K.',
+  `MemberID` bigint(20) NOT NULL COMMENT 'F.K. Member Table',
+  `ProfileImagePath` varbinary(255) DEFAULT NULL,
+  `Gender` enum('M','F') DEFAULT NULL,
+  `GenderVisibility` enum('Y','N') DEFAULT NULL,
+  `BirthDate` date DEFAULT NULL,
+  `BirthDateVisibility` enum('Y','N') DEFAULT NULL,
+  `CountryID` int(11) DEFAULT NULL,
+  `CountryVisibility` enum('Y','N') DEFAULT NULL,
+  `SexualPreference` enum('M','W') DEFAULT NULL,
+  `SexualVisibility` enum('Y','N') DEFAULT NULL,
+  `RelationshipStatus` enum('N','S','I') DEFAULT NULL,
+  `RelationshipVisibility` enum('Y','N') DEFAULT NULL,
+  `Education` varbinary(255) DEFAULT NULL,
+  `EducationVisibility` enum('Y','N') DEFAULT NULL,
+  `Children` enum('Y','N') DEFAULT NULL,
+  `ChildrenVisibility` enum('Y','N') DEFAULT NULL,
+  `About` varbinary(500) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `MemberID` (`MemberID`),
+  KEY `CountryID` (`CountryID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=binary ROW_FORMAT=DYNAMIC AUTO_INCREMENT=20 ;
+
+--
+-- Dumping data for table `tblmemberprofile`
+--
+
+INSERT INTO `tblmemberprofile` (`id`, `MemberID`, `ProfileImagePath`, `Gender`, `GenderVisibility`, `BirthDate`, `BirthDateVisibility`, `CountryID`, `CountryVisibility`, `SexualPreference`, `SexualVisibility`, `RelationshipStatus`, `RelationshipVisibility`, `Education`, `EducationVisibility`, `Children`, `ChildrenVisibility`, `About`) VALUES
+(7, 19, 'viral.jpg', 'M', 'Y', '0000-00-00', 'N', 77, 'Y', 'M', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'I am viral'),
+(9, 26, 'sumitjoshi.jpg', 'M', 'Y', '1984-03-30', 'Y', 77, 'Y', 'M', 'N', 'N', 'N', 'N', 'N', 'N', 'N', '<p>Hello</p>'),
+(10, 27, 'jayesh.jpg', '', 'N', '0000-00-00', 'N', 1, 'N', 'M', 'N', 'N', 'N', 'N', 'N', 'N', 'N', ''),
+(11, 28, 'naresh.jpg', '', 'N', '0000-00-00', 'N', 1, 'N', 'M', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'hello'),
+(12, 29, 'hemang.jpg', '', 'N', '0000-00-00', 'N', 1, 'N', 'M', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'Hemang here'),
+(13, 30, 'nimesh.jpg', 'M', 'Y', '0000-00-00', 'N', 1, 'N', 'M', 'N', 'N', 'N', 'N', 'N', 'N', 'N', '<p>Nimesh here<img alt="" src="http://localhost/avigabso/FCKEditor/editor/images/smiley/msn/shades_smile.gif" /></p>'),
+(14, 31, 'nrupen.jpg', '', 'N', '0000-00-00', 'N', 1, 'N', 'M', 'N', 'N', 'N', 'N', 'N', 'N', 'N', '<p>nrupen here</p>'),
+(15, 32, 'amit.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Amit Here'),
+(16, 33, 'vishal.jpg', 'M', 'Y', '0000-00-00', 'N', 1, 'N', 'M', 'N', 'N', 'N', 'N', 'N', 'N', 'Y', '<p>vishal here</p>\r\n<p>want to edit more<img alt="" src="http://localhost/avigabso/FCKEditor/editor/images/smiley/msn/shades_smile.gif" /></p>\r\n<p>I wanna it</p>\r\n<p>and i aggree </p>\r\n<p>with it</p>'),
+(17, 34, 'sanjay.jpg', 'M', 'Y', '1984-03-30', 'Y', 77, 'Y', 'M', 'N', 'N', 'N', 'N', 'N', 'N', 'Y', '<p>sanjay here</p>\r\n<p>new edited</p>\r\n<p>text</p>\r\n<p>with smiles<img alt="" src="http://localhost/avigabso/FCKEditor/editor/images/smiley/msn/shades_smile.gif" /></p>'),
+(18, 35, 'bhavin.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(19, 36, 'testing.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblmemberprofilecontrols`
+--
+
+CREATE TABLE IF NOT EXISTS `tblmemberprofilecontrols` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `MemberID` bigint(20) NOT NULL,
+  `TagsOnHome` varbinary(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `MemberID` (`MemberID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=binary ROW_FORMAT=FIXED AUTO_INCREMENT=21 ;
+
+--
+-- Dumping data for table `tblmemberprofilecontrols`
+--
+
+INSERT INTO `tblmemberprofilecontrols` (`id`, `MemberID`, `TagsOnHome`) VALUES
+(5, 19, '20-24-25'),
+(10, 26, NULL),
+(11, 27, NULL),
+(12, 28, NULL),
+(13, 29, '20'),
+(14, 30, NULL),
+(15, 31, NULL),
+(16, 32, NULL),
+(17, 33, '20-24-25'),
+(18, 34, NULL),
+(19, 35, NULL),
+(20, 36, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblmemberregistration`
+--
+
+CREATE TABLE IF NOT EXISTS `tblmemberregistration` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'P.K.',
+  `Nickname` varbinary(259) NOT NULL COMMENT 'NickName of Member',
+  `EmailID` varbinary(259) NOT NULL COMMENT 'EmailID',
+  `UserPassword` binary(32) NOT NULL COMMENT 'User Password',
+  `CaptchaCode` varbinary(5) NOT NULL COMMENT 'Captcha Code',
+  `CreatedDate` date NOT NULL COMMENT 'Created Date',
+  `MemberStatus` enum('A','I','B') NOT NULL COMMENT 'Member Status',
+  `OnlineStatus` enum('O','F','R') NOT NULL COMMENT 'Online Status',
+  `MemberType` enum('U','T','A') NOT NULL COMMENT 'Member Type',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=binary ROW_FORMAT=DYNAMIC AUTO_INCREMENT=37 ;
+
+--
+-- Dumping data for table `tblmemberregistration`
+--
+
+INSERT INTO `tblmemberregistration` (`id`, `Nickname`, `EmailID`, `UserPassword`, `CaptchaCode`, `CreatedDate`, `MemberStatus`, `OnlineStatus`, `MemberType`) VALUES
+(19, 'viral', 'viral@amin.com', '91183e1cb4e46961f86a2ef6287927ad', '3b292', '2010-10-02', 'A', 'F', 'T'),
+(26, 'sumitjoshi', 'sumit@yahoo.com', '91183e1cb4e46961f86a2ef6287927ad', '44b08', '2010-10-02', 'A', 'F', 'A'),
+(27, 'jayesh', 'jayesh@yahoo.com', '91183e1cb4e46961f86a2ef6287927ad', '36d56', '2010-10-02', 'A', 'F', 'U'),
+(28, 'naresh', 'naresh@yahoo.com', '91183e1cb4e46961f86a2ef6287927ad', 'd768f', '2010-10-02', 'A', 'O', 'T'),
+(29, 'hemang', 'hemag@yahoo.com', '91183e1cb4e46961f86a2ef6287927ad', 'e80ff', '2010-10-02', 'A', 'F', 'U'),
+(30, 'nimesh', 'nimesh@yahoo.com', '91183e1cb4e46961f86a2ef6287927ad', '55089', '2010-10-02', 'A', 'F', 'U'),
+(31, 'nrupen', 'nrupen@yahoo.com', '91183e1cb4e46961f86a2ef6287927ad', 'a13f4', '2010-10-02', 'B', 'F', 'U'),
+(32, 'amit', 'amit@yahoo.com', '91183e1cb4e46961f86a2ef6287927ad', '5d696', '2010-10-02', 'A', 'F', 'U'),
+(33, 'vishal', 'vishal@yahoo.com', '91183e1cb4e46961f86a2ef6287927ad', '56b6a', '2010-10-02', 'A', 'F', 'U'),
+(34, 'sanjay', 'sanjay@yahoo.com', '91183e1cb4e46961f86a2ef6287927ad', 'e24ae', '2010-10-02', 'A', 'F', 'T'),
+(35, 'bhavin', 'bhavin@bhavin.com', '003503028c98685c16838b949f9a8a68', '2e3b1', '2010-10-19', 'B', 'F', 'U'),
+(36, 'testing', 'testing@testing.com', '7489a25fc99976f06fecb807991c61cf', 'f0bf7', '2011-07-17', 'A', 'F', 'U');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblmembersitecontrols`
+--
+
+CREATE TABLE IF NOT EXISTS `tblmembersitecontrols` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'P.K.',
+  `MemberID` bigint(20) NOT NULL COMMENT 'F.K.',
+  `NCF` enum('Y','N') NOT NULL COMMENT 'Newest Comment First. Default TRUE',
+  `OFCSP` enum('Y','N') NOT NULL COMMENT 'Only Friend Can see my profile. Default FALSE',
+  `OFCC` enum('Y','N') NOT NULL COMMENT 'Only Friends can comments in my profile. Default FALSE',
+  `EWMCP` enum('Y','N') NOT NULL COMMENT 'Email me when member comments in my profile. Default TRUE',
+  `EWFRM` enum('Y','N') NOT NULL COMMENT 'Email me when friend request is made. Default TRUE',
+  `ESA` enum('Y','N') NOT NULL COMMENT 'Email me when Site announcements made. Default TRUE',
+  PRIMARY KEY (`id`),
+  KEY `MemberID` (`MemberID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=binary ROW_FORMAT=FIXED AUTO_INCREMENT=19 ;
+
+--
+-- Dumping data for table `tblmembersitecontrols`
+--
+
+INSERT INTO `tblmembersitecontrols` (`id`, `MemberID`, `NCF`, `OFCSP`, `OFCC`, `EWMCP`, `EWFRM`, `ESA`) VALUES
+(3, 19, 'Y', 'N', 'N', 'N', 'Y', 'Y'),
+(8, 26, 'Y', 'N', 'N', 'N', 'Y', 'Y'),
+(9, 27, 'Y', 'N', 'N', 'N', 'Y', 'Y'),
+(10, 28, 'Y', 'N', 'N', 'N', 'Y', 'Y'),
+(11, 29, 'Y', 'N', 'N', 'N', 'Y', 'Y'),
+(12, 30, 'Y', 'N', 'N', 'N', 'Y', 'Y'),
+(13, 31, 'Y', 'N', 'N', 'N', 'Y', 'Y'),
+(14, 32, 'Y', 'N', 'N', 'N', 'Y', 'Y'),
+(15, 33, 'Y', 'N', 'N', 'N', 'Y', 'Y'),
+(16, 34, 'Y', 'Y', 'N', 'N', 'Y', 'Y'),
+(17, 35, 'Y', 'N', 'N', 'N', 'Y', 'Y'),
+(18, 36, 'Y', 'N', 'N', 'N', 'Y', 'Y');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblpeopledontlike`
+--
+
+CREATE TABLE IF NOT EXISTS `tblpeopledontlike` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'P.K.',
+  `StuffID` bigint(20) NOT NULL COMMENT 'F.K. Stuff Table',
+  `MemberID` bigint(20) NOT NULL COMMENT 'F.K. Member Table',
+  `CreatedDate` date NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `StuffID` (`StuffID`,`MemberID`),
+  KEY `MemberID` (`MemberID`)
+) ENGINE=InnoDB DEFAULT CHARSET=binary AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `tblpeopledontlike`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblpeoplelike`
+--
+
+CREATE TABLE IF NOT EXISTS `tblpeoplelike` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `StuffID` bigint(20) NOT NULL,
+  `CategoryID` bigint(20) NOT NULL,
+  `MemberID` bigint(20) NOT NULL,
+  `Flag` enum('Y','N') NOT NULL DEFAULT 'Y',
+  `CreatedDate` date NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `MemberID` (`MemberID`),
+  KEY `StuffID` (`StuffID`),
+  KEY `CategoryID` (`CategoryID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=binary AUTO_INCREMENT=251 ;
+
+--
+-- Dumping data for table `tblpeoplelike`
+--
+
+INSERT INTO `tblpeoplelike` (`id`, `StuffID`, `CategoryID`, `MemberID`, `Flag`, `CreatedDate`) VALUES
+(207, 147, 141, 26, 'Y', '2010-11-20'),
+(208, 148, 142, 26, 'Y', '2010-11-21'),
+(210, 147, 141, 30, 'Y', '2010-11-22'),
+(212, 148, 142, 30, 'Y', '2010-11-22'),
+(213, 149, 143, 30, 'Y', '2010-11-24'),
+(214, 150, 144, 30, 'Y', '2010-11-25'),
+(215, 151, 145, 30, 'Y', '2010-11-26'),
+(216, 152, 146, 30, 'Y', '2010-11-26'),
+(217, 153, 147, 30, 'Y', '2010-11-26'),
+(218, 154, 148, 30, 'Y', '2010-11-26'),
+(219, 155, 149, 30, 'Y', '2010-11-26'),
+(220, 156, 150, 30, 'Y', '2010-11-26'),
+(221, 157, 151, 30, 'Y', '2010-11-26'),
+(222, 158, 152, 30, 'Y', '2010-11-26'),
+(223, 159, 153, 30, 'Y', '2010-11-26'),
+(224, 160, 154, 30, 'Y', '2010-11-26'),
+(225, 161, 155, 30, 'Y', '2010-11-26'),
+(226, 162, 149, 30, 'Y', '2010-11-27'),
+(227, 163, 156, 30, 'Y', '2010-11-27'),
+(228, 164, 157, 30, 'Y', '2010-11-27'),
+(229, 165, 158, 30, 'Y', '2010-11-27'),
+(230, 166, 159, 30, 'Y', '2010-11-27'),
+(231, 167, 160, 30, 'Y', '2010-11-27'),
+(234, 170, 161, 34, 'Y', '2010-11-29'),
+(236, 172, 163, 30, 'Y', '2010-11-30'),
+(237, 173, 164, 30, 'Y', '2010-11-30'),
+(238, 159, 153, 26, 'N', '2010-12-02'),
+(241, 176, 167, 30, 'Y', '2010-12-09'),
+(243, 178, 168, 26, 'Y', '2010-12-11'),
+(245, 180, 169, 26, 'Y', '2011-05-01'),
+(246, 181, 170, 26, 'Y', '2011-07-17'),
+(247, 182, 171, 26, 'Y', '2011-07-17'),
+(248, 160, 144, 36, 'Y', '2011-07-17'),
+(249, 165, 158, 26, 'N', '2011-09-24'),
+(250, 183, 172, 19, 'Y', '2011-09-24');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblprivatemessage`
+--
+
+CREATE TABLE IF NOT EXISTS `tblprivatemessage` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'P.K.',
+  `MemberID` bigint(20) NOT NULL COMMENT 'F.K.',
+  `FriendID` bigint(20) NOT NULL COMMENT 'F.K.',
+  `Message` longblob NOT NULL COMMENT 'Message',
+  `CreatedDate` date NOT NULL COMMENT 'Sent Date',
+  `Flag` enum('U','R') CHARACTER SET binary NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `MemberID` (`MemberID`),
+  KEY `FriendID` (`FriendID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT AUTO_INCREMENT=65 ;
+
+--
+-- Dumping data for table `tblprivatemessage`
+--
+
+INSERT INTO `tblprivatemessage` (`id`, `MemberID`, `FriendID`, `Message`, `CreatedDate`, `Flag`) VALUES
+(10, 34, 33, 0x68656c6c6f2066726f6d206e65770d0a73616e6a6179, '2010-10-26', 'U'),
+(11, 34, 33, 0x3c703e68656c6c6f203c2f703e0d0a3c703e776974682066636b656469746f723c2f703e, '2010-10-26', 'U'),
+(12, 34, 34, 0x3c703e683c737472696b653e3c753e656c6c6f3c2f753e3c2f737472696b653e3c2f703e0d0a3c703e66726f6d203c7374726f6e673e6e657720733c2f7374726f6e673e616e6a61793c2f703e0d0a3c703e776974682066636b656469746f723c696d67207372633d22687474703a2f2f6c6f63616c686f73742f617669676162736f2f46434b456469746f722f656469746f722f696d616765732f736d696c65792f6d736e2f646576696c5f736d696c652e6769662220616c743d2222202f3e3c2f703e, '2010-10-26', 'U'),
+(13, 33, 34, 0x3c703e48656c6c6f203c2f703e0d0a3c703e66726f6d203c7374726f6e673e3c7370616e207374796c653d22636f6c6f723a20726762283235352c203235352c20323535293b223e3c7370616e207374796c653d226261636b67726f756e642d636f6c6f723a20726762283132382c20302c2030293b223e76697368616c3c2f7370616e3e3c2f7370616e3e3c2f7374726f6e673e3c2f703e0d0a3c703e77686f206973207573693c7374726f6e673e3c7370616e207374796c653d22636f6c6f723a2072676228302c20302c20313238293b223e6e672046434b453c2f7370616e3e3c2f7374726f6e673e3c7370616e207374796c653d22636f6c6f723a2072676228302c20302c20313238293b223e643c2f7370616e3e69746f723c2f703e, '2010-10-27', 'U'),
+(21, 34, 29, 0x68656c6c6f2068656d616e672120486f772061726520796f753f, '2010-10-29', 'U'),
+(22, 33, 34, '', '2010-10-30', 'U'),
+(23, 33, 34, '', '2010-10-30', 'U'),
+(24, 33, 34, 0x3c703e48692c2053616e6a61793c2f703e0d0a3c703e546869732069732076697368616c20776974682046434b20456469746f72203c2f703e0d0a3c703e7769746820416a617820696e2053656e64204d6573736167652053797374656d2e3c2f703e0d0a3c703e3c696d67207372633d22687474703a2f2f6c6f63616c686f73742f617669676162736f2f46434b456469746f722f656469746f722f696d616765732f736d696c65792f6d736e2f7361645f736d696c652e6769662220616c743d2222202f3e3c2f703e, '2010-10-30', 'U'),
+(25, 34, 33, '', '2010-10-30', 'U'),
+(26, 33, 34, '', '2010-10-30', 'U'),
+(27, 33, 34, 0x3c703e3c696d67207372633d22687474703a2f2f6c6f63616c686f73742f617669676162736f2f46434b456469746f722f656469746f722f696d616765732f736d696c65792f6d736e2f74656574685f736d696c652e6769662220616c743d2222202f3e3c2f703e, '2010-10-30', 'U'),
+(28, 33, 34, '', '2010-10-30', 'U'),
+(29, 33, 34, '', '2010-10-30', 'U'),
+(30, 34, 34, 0x3c703e48656c6c6f3c2f703e, '2010-11-27', 'U'),
+(31, 34, 34, 0x3c703e616761696e2068656c6c6f3c2f703e, '2010-11-27', 'U'),
+(32, 26, 19, 0x3c703e48656c6c6f3c2f703e, '2010-12-15', 'U'),
+(33, 26, 26, 0x3c703e48656c6c6f3c2f703e, '2010-12-15', 'U'),
+(34, 26, 27, 0x3c703e48656c6c6f3c2f703e, '2010-12-15', 'U'),
+(35, 26, 28, 0x3c703e48656c6c6f3c2f703e, '2010-12-15', 'U'),
+(36, 26, 29, 0x3c703e48656c6c6f3c2f703e, '2010-12-15', 'U'),
+(37, 26, 30, 0x3c703e48656c6c6f3c2f703e, '2010-12-15', 'U'),
+(38, 26, 31, 0x3c703e48656c6c6f3c2f703e, '2010-12-15', 'U'),
+(39, 26, 32, 0x3c703e48656c6c6f3c2f703e, '2010-12-15', 'U'),
+(40, 26, 33, 0x3c703e48656c6c6f3c2f703e, '2010-12-15', 'U'),
+(41, 26, 34, 0x3c703e48656c6c6f3c2f703e, '2010-12-15', 'U'),
+(42, 26, 35, 0x3c703e48656c6c6f3c2f703e, '2010-12-15', 'U'),
+(43, 26, 19, '', '2010-12-15', 'U'),
+(44, 26, 26, '', '2010-12-15', 'U'),
+(45, 26, 27, '', '2010-12-15', 'U'),
+(46, 26, 28, '', '2010-12-15', 'U'),
+(47, 26, 29, '', '2010-12-15', 'U'),
+(48, 26, 30, '', '2010-12-15', 'U'),
+(49, 26, 31, '', '2010-12-15', 'U'),
+(50, 26, 32, '', '2010-12-15', 'U'),
+(51, 26, 33, '', '2010-12-15', 'U'),
+(52, 26, 34, '', '2010-12-15', 'U'),
+(53, 26, 35, '', '2010-12-15', 'U'),
+(54, 26, 19, 0x3c703e68656c6c6f3c2f703e, '2010-12-15', 'U'),
+(55, 26, 26, 0x3c703e68656c6c6f3c2f703e, '2010-12-15', 'U'),
+(56, 26, 27, 0x3c703e68656c6c6f3c2f703e, '2010-12-15', 'U'),
+(57, 26, 28, 0x3c703e68656c6c6f3c2f703e, '2010-12-15', 'U'),
+(58, 26, 29, 0x3c703e68656c6c6f3c2f703e, '2010-12-15', 'U'),
+(59, 26, 30, 0x3c703e68656c6c6f3c2f703e, '2010-12-15', 'U'),
+(60, 26, 31, 0x3c703e68656c6c6f3c2f703e, '2010-12-15', 'U'),
+(61, 26, 32, 0x3c703e68656c6c6f3c2f703e, '2010-12-15', 'U'),
+(62, 26, 33, 0x3c703e68656c6c6f3c2f703e, '2010-12-15', 'U'),
+(63, 26, 34, 0x3c703e68656c6c6f3c2f703e, '2010-12-15', 'U'),
+(64, 26, 35, 0x3c703e68656c6c6f3c2f703e, '2010-12-15', 'U');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblreportviolation`
+--
+
+CREATE TABLE IF NOT EXISTS `tblreportviolation` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'P.K.',
+  `StuffID` bigint(20) NOT NULL COMMENT 'F.K. Stuff Table',
+  `MemberID` bigint(20) NOT NULL COMMENT 'F.K. Member Table',
+  `ModeratorID` bigint(20) DEFAULT NULL,
+  `Description` varbinary(500) NOT NULL COMMENT 'Description about Violation',
+  `CreatedDate` date NOT NULL COMMENT 'Sent Date',
+  `Handled` enum('N','Y') NOT NULL,
+  `HandledDate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `MemberID` (`MemberID`),
+  KEY `StuffID` (`StuffID`),
+  KEY `ModeratorID` (`ModeratorID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=binary ROW_FORMAT=DYNAMIC AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `tblreportviolation`
+--
+
+INSERT INTO `tblreportviolation` (`id`, `StuffID`, `MemberID`, `ModeratorID`, `Description`, `CreatedDate`, `Handled`, `HandledDate`) VALUES
+(1, 147, 30, 26, 'sfdsff', '2010-12-12', 'N', '2010-12-13 16:04:26'),
+(2, 159, 30, 26, 'please remove this stuff', '2010-12-12', 'N', '2010-12-13 16:04:26'),
+(3, 148, 34, NULL, 'Please remove this stuff', '2010-12-13', 'N', NULL),
+(4, 148, 34, 26, 'it''s not good', '2010-12-13', 'Y', '2010-12-15 12:39:42'),
+(5, 180, 26, NULL, 'This stuff should not be displayed here', '2011-05-01', 'N', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblsiteconfiguration`
+--
+
+CREATE TABLE IF NOT EXISTS `tblsiteconfiguration` (
+  `id` int(2) NOT NULL AUTO_INCREMENT COMMENT 'P.K.',
+  `TotalStuffListOnHomePage` int(3) NOT NULL,
+  `TotalCategoryListOnHomePage` int(3) NOT NULL,
+  `TotalRandomTagListOnHomePage` int(3) NOT NULL,
+  `TotalRecordsOnBrowseStuffPage` int(3) NOT NULL,
+  `TotalRecordsOnBrowseSearchStuffPage` int(3) NOT NULL,
+  `TotalRecordsOnBrowseCategoryPage` int(3) NOT NULL,
+  `TotalRelatedCategory` int(2) NOT NULL,
+  `TotalRecordsOnAdminMemberPage` int(3) NOT NULL,
+  `TotalRecordsOnAdminTopicsPage` int(3) NOT NULL,
+  `TotalRecordsOnAdminCategoryPage` int(3) NOT NULL,
+  `TotalRecordsOnAdminStuffPage` int(3) NOT NULL,
+  `TotalRecordsOnAdminMemberSearchPage` int(3) NOT NULL,
+  `TotalRecordsOnTrustedMemberCategoryPage` int(3) NOT NULL,
+  `TotalRecordsOnTrustedMemberStuffPage` int(3) NOT NULL,
+  `TotalRecordsOnMemberStuffPage` int(3) NOT NULL,
+  `TotalRecordsOnMemberCommentPage` int(3) NOT NULL,
+  `TotalRecordsOnMemberInnerStuffPage` int(3) NOT NULL,
+  `TotalRecordsOnMemberInnerCommentPage` int(2) NOT NULL,
+  `TotalRecordsOnMemberFriendPage` int(2) NOT NULL,
+  `ShowStuffBasedOnVotesOnHomePage` int(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=binary AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `tblsiteconfiguration`
+--
+
+INSERT INTO `tblsiteconfiguration` (`id`, `TotalStuffListOnHomePage`, `TotalCategoryListOnHomePage`, `TotalRandomTagListOnHomePage`, `TotalRecordsOnBrowseStuffPage`, `TotalRecordsOnBrowseSearchStuffPage`, `TotalRecordsOnBrowseCategoryPage`, `TotalRelatedCategory`, `TotalRecordsOnAdminMemberPage`, `TotalRecordsOnAdminTopicsPage`, `TotalRecordsOnAdminCategoryPage`, `TotalRecordsOnAdminStuffPage`, `TotalRecordsOnAdminMemberSearchPage`, `TotalRecordsOnTrustedMemberCategoryPage`, `TotalRecordsOnTrustedMemberStuffPage`, `TotalRecordsOnMemberStuffPage`, `TotalRecordsOnMemberCommentPage`, `TotalRecordsOnMemberInnerStuffPage`, `TotalRecordsOnMemberInnerCommentPage`, `TotalRecordsOnMemberFriendPage`, `ShowStuffBasedOnVotesOnHomePage`) VALUES
+(1, 15, 15, 60, 10, 10, 10, 5, 5, 4, 7, 8, 3, 5, 7, 10, 20, 5, 5, 20, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblsitecontrols`
+--
+
+CREATE TABLE IF NOT EXISTS `tblsitecontrols` (
+  `id` bigint(20) NOT NULL COMMENT 'P.K.',
+  `NCF` enum('Y','N') NOT NULL COMMENT 'Newest Comment First Default TRUE',
+  `OFCSP` enum('Y','N') NOT NULL COMMENT 'Only Friend Can see my profile. Default FALSE',
+  `OFCC` enum('Y','N') NOT NULL COMMENT 'Only Friends can comments in my profile. Default FALSE',
+  `EWMCP` enum('Y','N') NOT NULL COMMENT 'Email me when member comments in my profile. Default TRUE',
+  `EWFRM` enum('Y','N') NOT NULL COMMENT 'Email me when friend request is made. Default TRUE',
+  `ESA` enum('Y','N') NOT NULL COMMENT 'Email me when Site announcements made. Default TRUE',
+  `MIFC` int(3) NOT NULL COMMENT 'Minimum Items (Stuffs) a Member has to display his collage image on Home Page',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=binary ROW_FORMAT=FIXED;
+
+--
+-- Dumping data for table `tblsitecontrols`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblstuff`
+--
+
+CREATE TABLE IF NOT EXISTS `tblstuff` (
+  `id` bigint(11) NOT NULL AUTO_INCREMENT COMMENT 'P.K.',
+  `MemberID` bigint(20) NOT NULL COMMENT 'F.K. Member Table',
+  `Title` varbinary(255) NOT NULL,
+  `CategoryID` bigint(20) NOT NULL COMMENT 'F.K. Category Table',
+  `TagID` bigint(20) DEFAULT NULL COMMENT 'F.K. Tag Table',
+  `Rate` int(3) DEFAULT NULL,
+  `Views` bigint(20) DEFAULT NULL,
+  `Status` enum('A','I','D','L') CHARACTER SET binary NOT NULL,
+  `HomePageStatus` enum('D','N') CHARACTER SET binary NOT NULL,
+  `CreatedDate` date NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `TagID` (`TagID`),
+  KEY `CategoryID` (`CategoryID`),
+  KEY `MemberID` (`MemberID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT AUTO_INCREMENT=184 ;
+
+--
+-- Dumping data for table `tblstuff`
+--
+
+INSERT INTO `tblstuff` (`id`, `MemberID`, `Title`, `CategoryID`, `TagID`, `Rate`, `Views`, `Status`, `HomePageStatus`, `CreatedDate`) VALUES
+(147, 26, 'new stuff 1', 141, 29, NULL, NULL, 'A', 'D', '2010-11-20'),
+(148, 26, 'new stuff 2', 142, 26, NULL, NULL, 'A', 'D', '2010-11-21'),
+(149, 30, 'new stuff3', 143, 27, NULL, NULL, 'A', 'D', '2010-11-24'),
+(150, 30, 'new stuff with image', 144, 25, NULL, NULL, 'A', 'D', '2010-11-25'),
+(151, 30, 'new stuff4', 145, 22, NULL, NULL, 'A', 'D', '2010-11-26'),
+(152, 30, 'new stuff 5', 146, 20, NULL, NULL, 'A', 'D', '2010-11-26'),
+(153, 30, 'new stuff 6', 147, 15, NULL, NULL, 'A', 'D', '2010-11-26'),
+(154, 30, 'new stuff 7', 148, 25, NULL, NULL, 'A', 'D', '2010-11-26'),
+(155, 30, 'new stuff 8', 149, 14, NULL, NULL, 'A', 'D', '2010-11-26'),
+(156, 30, 'new stuff 9', 150, 27, NULL, NULL, 'A', 'D', '2010-11-26'),
+(157, 30, 'new stuff 10', 151, 23, NULL, NULL, 'A', 'D', '2010-11-26'),
+(158, 30, 'new stuff 11', 152, 22, NULL, NULL, 'A', 'D', '2010-11-26'),
+(159, 30, 'new stuff 12', 153, 17, NULL, NULL, 'A', 'D', '2010-11-26'),
+(160, 30, 'cars 1', 154, 12, NULL, NULL, 'A', 'D', '2010-11-26'),
+(161, 30, 'cars 2', 155, 20, NULL, NULL, 'A', 'D', '2010-11-26'),
+(162, 30, 'new my stuff', 149, 25, NULL, NULL, 'A', 'D', '2010-11-27'),
+(163, 30, 'new stuff 13', 156, 17, NULL, NULL, 'A', 'D', '2010-11-27'),
+(164, 30, 'new stuff 14', 157, 27, NULL, NULL, 'A', 'D', '2010-11-27'),
+(165, 30, 'new stuff 15', 158, 23, NULL, NULL, 'L', 'D', '2010-11-27'),
+(166, 30, 'new stuff 16', 159, 20, NULL, NULL, 'A', 'D', '2010-11-27'),
+(167, 30, 'new stuff 17', 160, 33, NULL, NULL, 'A', 'D', '2010-11-27'),
+(170, 34, 'new stuff 20', 161, 25, NULL, NULL, 'A', 'D', '2010-11-29'),
+(172, 30, 'new stuff 26', 163, 17, NULL, NULL, 'A', 'D', '2010-11-30'),
+(173, 30, 'new stuff 27', 164, 17, NULL, NULL, 'A', 'D', '2010-11-30'),
+(176, 30, 'testing upload image problem', 167, 28, NULL, NULL, 'A', 'D', '2010-12-09'),
+(178, 26, 'new default image testing', 168, 13, NULL, NULL, 'A', 'D', '2010-12-11'),
+(180, 26, 'new stuff from sumit', 169, 28, NULL, NULL, 'A', 'D', '2011-05-01'),
+(181, 26, 'New Testing Stuff', 170, 19, NULL, NULL, 'A', 'D', '2011-07-17'),
+(182, 26, 'New Testing Stufss', 171, 19, NULL, NULL, 'A', 'D', '2011-07-17'),
+(183, 19, '??? ?-DNA', 172, 29, NULL, NULL, 'A', 'D', '2011-09-24');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblstuffcomment`
+--
+
+CREATE TABLE IF NOT EXISTS `tblstuffcomment` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'P.K.',
+  `StuffID` bigint(20) NOT NULL COMMENT 'F.K.',
+  `MemberID` bigint(20) NOT NULL,
+  `Comment` longblob NOT NULL,
+  `CreatedDate` date NOT NULL,
+  `Sensor` enum('U','H') NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `StuffID` (`StuffID`),
+  KEY `MemberID` (`MemberID`),
+  KEY `MemberID_2` (`MemberID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `tblstuffcomment`
+--
+
+INSERT INTO `tblstuffcomment` (`id`, `StuffID`, `MemberID`, `Comment`, `CreatedDate`, `Sensor`) VALUES
+(1, 165, 30, 0x3c703e48656c6c6f3c2f703e0d0a3c703e636f6d6d656e74696e6720486572653c2f703e, '2010-11-30', 'U'),
+(2, 150, 26, 0x3c703e6e657720636f6d6d656e743c2f703e, '2010-12-11', 'H'),
+(3, 150, 26, 0x3c703e616761696e206e657720636f6d6d656e743c2f703e, '2010-12-11', 'H'),
+(4, 147, 34, 0x3c703e48656c6c6f3c2f703e, '2010-12-18', 'U'),
+(5, 159, 34, 0x3c703e48656c6c6f3c2f703e, '2010-12-18', 'U'),
+(6, 148, 26, 0x3c703e266e6273703b49206c696b652074686973206361723c2f703e, '2011-05-01', 'U');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblstuffdescription`
+--
+
+CREATE TABLE IF NOT EXISTS `tblstuffdescription` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'P.K.',
+  `StuffID` bigint(20) NOT NULL COMMENT 'F.K.',
+  `MemberID` bigint(20) NOT NULL,
+  `Description` longblob,
+  `CreatedDate` date NOT NULL,
+  `Flag` enum('Y','N') CHARACTER SET binary NOT NULL,
+  `Sensor` enum('U','H') NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `StuffID` (`StuffID`),
+  KEY `MemberID` (`MemberID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT AUTO_INCREMENT=221 ;
+
+--
+-- Dumping data for table `tblstuffdescription`
+--
+
+INSERT INTO `tblstuffdescription` (`id`, `StuffID`, `MemberID`, `Description`, `CreatedDate`, `Flag`, `Sensor`) VALUES
+(179, 147, 26, 0x3c703e6e657720737475666620313c2f703e, '2010-12-11', 'Y', 'U'),
+(180, 148, 34, 0x3c703e4e65772073747566663c2f703e0d0a3c703e323c2f703e, '2010-11-26', 'Y', 'H'),
+(181, 149, 26, 0x3c703e6e657720737475666620333c2f703e, '2010-12-11', 'Y', 'H'),
+(182, 150, 26, 0x3c703e68656c6c6f3c2f703e, '2010-12-11', 'Y', 'H'),
+(183, 151, 30, 0x3c703e6e657720737475666620343c2f703e, '2010-11-26', 'Y', 'U'),
+(184, 152, 30, 0x3c703e6e657720737475666620353c2f703e, '2010-11-26', 'Y', 'U'),
+(185, 153, 30, 0x3c703e6e657720737475666620363c2f703e, '2010-11-26', 'Y', 'U'),
+(186, 154, 30, 0x3c703e6e657720737475666620373c2f703e, '2010-11-26', 'Y', 'U'),
+(187, 155, 30, 0x3c703e6e657720737475666620383c2f703e, '2010-11-26', 'Y', 'U'),
+(188, 156, 30, 0x3c703e6e657720737475666620393c2f703e, '2010-11-26', 'Y', 'U'),
+(189, 157, 30, 0x3c703e6e657720737475666620393c2f703e, '2010-11-26', 'Y', 'U'),
+(190, 158, 30, 0x3c703e6e65772073747566662031313c2f703e, '2010-11-26', 'Y', 'U'),
+(191, 159, 30, 0x3c703e6e65772073747566662031323c2f703e, '2010-11-26', 'Y', 'U'),
+(192, 160, 30, 0x3c703e6361727320313c2f703e, '2010-11-26', 'Y', 'U'),
+(193, 161, 30, 0x3c703e6361727320323c2f703e, '2010-11-26', 'Y', 'U'),
+(194, 162, 30, 0x3c703e6d792073747566663c2f703e, '2010-11-27', 'Y', 'U'),
+(195, 163, 30, 0x3c703e6e65772073747566662031333c2f703e, '2010-11-27', 'Y', 'U'),
+(196, 164, 30, 0x3c703e6e65772073747566662031343c2f703e, '2010-11-27', 'Y', 'U'),
+(197, 165, 26, 0x3c703e6e65772073747566662031343c2f703e, '2010-12-03', 'Y', 'U'),
+(198, 166, 30, 0x3c703e6e65772073747566662031363c2f703e, '2010-11-27', 'Y', 'U'),
+(199, 167, 30, 0x3c703e6e65772073747566662031363c2f703e, '2010-11-27', 'Y', 'U'),
+(202, 170, 34, 0x3c703e6e65773c2f703e, '2010-11-29', 'Y', 'U'),
+(204, 172, 30, 0x3c703e6673667364733c2f703e, '2010-11-30', 'Y', 'U'),
+(205, 173, 30, 0x3c703e7364666473663c2f703e, '2010-11-30', 'Y', 'U'),
+(208, 176, 30, 0x3c703e74657374696e672075706c6f616420696d6167652070726f626c656d3c2f703e, '2010-12-09', 'Y', 'U'),
+(210, 178, 26, 0x3c703e6e657720646566756c743c2f703e, '2010-12-11', 'Y', 'U'),
+(211, 149, 30, 0x3c703e6e657720737475666620333c2f703e0d0a3c703e6e6577313c2f703e, '2010-12-15', 'Y', 'H'),
+(212, 149, 30, 0x3c703e6e657720737475666620333c2f703e0d0a3c703e6e6577313c2f703e0d0a3c703e6e657720323c2f703e, '2010-12-15', 'Y', 'U'),
+(214, 180, 26, 0x3c703e73667366733c2f703e, '2011-05-01', 'Y', 'U'),
+(215, 180, 26, 0x3c703e73667366733c2f703e0d0a3c703e6e6577206f6e653c2f703e, '2011-05-01', 'Y', 'H'),
+(216, 181, 26, '', '2011-07-17', 'Y', 'U'),
+(217, 182, 26, '', '2011-07-17', 'N', 'U'),
+(218, 182, 26, 0x3c703e4920616d20616464696e672061206465736372697074696f6e20696e20686572653c2f703e0d0a3c6272202f3e, '2011-09-24', 'N', 'U'),
+(219, 182, 26, 0x3c703e4920616d20616464696e672061206465736372697074696f6e20696e20686572652e3c2f703e0d0a3c703e4e6f772074686572652069732061207365636f6e642070617274206f662074686973206465736372697074696f6e3c2f703e0d0a3c703e266e6273703b3c2f703e, '2011-09-24', 'Y', 'U'),
+(220, 183, 19, 0x3c7370616e206c616e673d2269772220636c6173733d2273686f72745f74657874222069643d22726573756c745f626f78223e3c7370616e20636c6173733d22687073223ed7942d444e413c2f7370616e3e203c7370616e20636c6173733d22687073223e33443c2f7370616e3e203c7370616e20636c6173733d22687073223ed7a9d79c3c2f7370616e3e203c7370616e20636c6173733d22687073223ed792d795d7a320d794d790d793d79d3c2f7370616e3e3c2f7370616e3e, '2011-09-24', 'Y', 'U');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblstuffimages`
+--
+
+CREATE TABLE IF NOT EXISTS `tblstuffimages` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'P.K.',
+  `Flag` enum('A','I') NOT NULL,
+  `StuffID` bigint(20) NOT NULL COMMENT 'F.K.',
+  `ImagePath` varbinary(255) NOT NULL COMMENT 'Image Path',
+  `CreatedDate` date NOT NULL COMMENT 'Date Created',
+  PRIMARY KEY (`id`),
+  KEY `StuffID` (`StuffID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=binary ROW_FORMAT=DYNAMIC AUTO_INCREMENT=219 ;
+
+--
+-- Dumping data for table `tblstuffimages`
+--
+
+INSERT INTO `tblstuffimages` (`id`, `Flag`, `StuffID`, `ImagePath`, `CreatedDate`) VALUES
+(174, 'A', 147, '129024018214.jpg', '2010-11-20'),
+(177, 'A', 147, '1290240515Centaur-jpg.jpg', '2010-11-20'),
+(178, 'A', 148, '129033531611.jpg', '2010-11-21'),
+(179, 'A', 149, '129061034510.jpg', '2010-11-24'),
+(180, 'A', 150, '1290680094fluorescence6.jpg', '2010-11-25'),
+(181, 'A', 151, '12907610341.jpg', '2010-11-26'),
+(182, 'A', 152, '12907610682.jpg', '2010-11-26'),
+(183, 'A', 153, '12907611174.jpg', '2010-11-26'),
+(184, 'A', 154, '12907613575.jpg', '2010-11-26'),
+(185, 'A', 155, '129076143106.JPG', '2010-11-26'),
+(186, 'A', 156, '129076153306.JPG', '2010-11-26'),
+(187, 'A', 157, '12907615566.jpg', '2010-11-26'),
+(188, 'A', 158, '12907617727.jpg', '2010-11-26'),
+(189, 'A', 159, '12907617978.jpg', '2010-11-26'),
+(190, 'A', 160, '12907618209.jpg', '2010-11-26'),
+(191, 'A', 161, '129076184610.jpg', '2010-11-26'),
+(192, 'A', 162, '129087329118.jpg', '2010-11-27'),
+(193, 'A', 163, '129087702125114_wallpaper280.jpg', '2010-11-27'),
+(194, 'A', 164, '1290877067friendship01.jpg', '2010-11-27'),
+(195, 'A', 165, '1290877094Attack.jpg', '2010-11-27'),
+(196, 'A', 166, '1290877256digital existence.jpg', '2010-11-27'),
+(197, 'A', 167, '129087729719.jpg', '2010-11-27'),
+(200, 'A', 170, 'default.jpg', '2010-11-29'),
+(202, 'A', 172, 'default.jpg', '2010-11-30'),
+(203, 'A', 173, 'default.jpg', '2010-11-30'),
+(206, 'A', 176, '1291901330WATERFAL.JPG', '2010-12-09'),
+(208, 'A', 178, 'default.jpg', '2010-12-11'),
+(210, 'A', 180, '1304228957IMG_2420.JPG', '2011-05-01'),
+(211, 'A', 159, '22.jpg', '2011-07-15'),
+(212, 'A', 159, '1.jpg', '2011-07-15'),
+(213, 'A', 159, '1.jpg', '2011-07-15'),
+(214, 'A', 159, '2.jpg', '2011-07-15'),
+(215, 'A', 181, '131091948619.jpg', '2011-07-17'),
+(216, 'A', 182, '13109206021.jpg', '2011-07-17'),
+(217, 'A', 182, '(3D) - Wallpapers4Desktop.com 008.jpg', '2011-09-24'),
+(218, 'A', 183, '13168354213D Windows Wallpaper.jpg', '2011-09-24');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbltag`
+--
+
+CREATE TABLE IF NOT EXISTS `tbltag` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `TagName` varbinary(100) NOT NULL,
+  `Status` enum('A','I') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=binary ROW_FORMAT=DYNAMIC AUTO_INCREMENT=34 ;
+
+--
+-- Dumping data for table `tbltag`
+--
+
+INSERT INTO `tbltag` (`id`, `TagName`, `Status`) VALUES
+(12, 'Activities', 'A'),
+(13, 'Arts', 'A'),
+(14, 'Books', 'A'),
+(15, 'Experience', 'A'),
+(16, 'Fashion', 'A'),
+(17, 'Film', 'A'),
+(18, 'Food', 'A'),
+(19, 'Humor', 'A'),
+(20, 'Ideas', 'A'),
+(21, 'Music', 'A'),
+(22, 'Nature', 'A'),
+(23, 'Others', 'A'),
+(24, 'People', 'A'),
+(25, 'Places', 'A'),
+(26, 'Products', 'A'),
+(27, 'Quotes', 'A'),
+(28, 'TV', 'A'),
+(29, 'Technology', 'A'),
+(33, 'My New Tag', 'A');
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tbladdfriend`
+--
+ALTER TABLE `tbladdfriend`
+  ADD CONSTRAINT `tblAddFriend_ibfk_1` FOREIGN KEY (`MemberID`) REFERENCES `tblmemberregistration` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tblAddFriend_ibfk_2` FOREIGN KEY (`FriendID`) REFERENCES `tblmemberregistration` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblbookmark`
+--
+ALTER TABLE `tblbookmark`
+  ADD CONSTRAINT `tblbookmark_ibfk_1` FOREIGN KEY (`StuffID`) REFERENCES `tblstuff` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblcategory`
+--
+ALTER TABLE `tblcategory`
+  ADD CONSTRAINT `tblCategory_ibfk_1` FOREIGN KEY (`MemberID`) REFERENCES `tblmemberregistration` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbllogininfo`
+--
+ALTER TABLE `tbllogininfo`
+  ADD CONSTRAINT `tblLoginInfo_ibfk_1` FOREIGN KEY (`MemberID`) REFERENCES `tblmemberregistration` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblmembercomment`
+--
+ALTER TABLE `tblmembercomment`
+  ADD CONSTRAINT `tblMemberComment_ibfk_1` FOREIGN KEY (`MemberID`) REFERENCES `tblmemberregistration` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tblMemberComment_ibfk_2` FOREIGN KEY (`FriendID`) REFERENCES `tblmemberregistration` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblmemberprofile`
+--
+ALTER TABLE `tblmemberprofile`
+  ADD CONSTRAINT `tblMemberProfile_ibfk_1` FOREIGN KEY (`MemberID`) REFERENCES `tblmemberregistration` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tblMemberProfile_ibfk_2` FOREIGN KEY (`CountryID`) REFERENCES `tblcountry` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblmemberprofilecontrols`
+--
+ALTER TABLE `tblmemberprofilecontrols`
+  ADD CONSTRAINT `tblMemberProfileControls_ibfk_1` FOREIGN KEY (`MemberID`) REFERENCES `tblmemberregistration` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblmembersitecontrols`
+--
+ALTER TABLE `tblmembersitecontrols`
+  ADD CONSTRAINT `tblMemberSiteControls_ibfk_1` FOREIGN KEY (`MemberID`) REFERENCES `tblmemberregistration` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblpeopledontlike`
+--
+ALTER TABLE `tblpeopledontlike`
+  ADD CONSTRAINT `tblpeopledontlike_ibfk_1` FOREIGN KEY (`StuffID`) REFERENCES `tblstuff` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tblpeopledontlike_ibfk_2` FOREIGN KEY (`MemberID`) REFERENCES `tblmemberregistration` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblpeoplelike`
+--
+ALTER TABLE `tblpeoplelike`
+  ADD CONSTRAINT `tblPeopleLike_ibfk_1` FOREIGN KEY (`MemberID`) REFERENCES `tblmemberregistration` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tblPeopleLike_ibfk_2` FOREIGN KEY (`StuffID`) REFERENCES `tblstuff` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tblPeopleLike_ibfk_3` FOREIGN KEY (`CategoryID`) REFERENCES `tblcategory` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblprivatemessage`
+--
+ALTER TABLE `tblprivatemessage`
+  ADD CONSTRAINT `tblPrivateMessage_ibfk_1` FOREIGN KEY (`MemberID`) REFERENCES `tblmemberregistration` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tblPrivateMessage_ibfk_2` FOREIGN KEY (`FriendID`) REFERENCES `tblmemberregistration` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblreportviolation`
+--
+ALTER TABLE `tblreportviolation`
+  ADD CONSTRAINT `tblReportViolation_ibfk_1` FOREIGN KEY (`MemberID`) REFERENCES `tblmemberregistration` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tblReportViolation_ibfk_2` FOREIGN KEY (`StuffID`) REFERENCES `tblstuff` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tblReportViolation_ibfk_3` FOREIGN KEY (`ModeratorID`) REFERENCES `tblmemberregistration` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblstuff`
+--
+ALTER TABLE `tblstuff`
+  ADD CONSTRAINT `tblStuff_ibfk_1` FOREIGN KEY (`MemberID`) REFERENCES `tblmemberregistration` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tblStuff_ibfk_2` FOREIGN KEY (`CategoryID`) REFERENCES `tblcategory` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tblStuff_ibfk_3` FOREIGN KEY (`TagID`) REFERENCES `tbltag` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblstuffcomment`
+--
+ALTER TABLE `tblstuffcomment`
+  ADD CONSTRAINT `tblStuffComment_ibfk_1` FOREIGN KEY (`StuffID`) REFERENCES `tblstuff` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tblStuffComment_ibfk_2` FOREIGN KEY (`MemberID`) REFERENCES `tblmemberregistration` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblstuffdescription`
+--
+ALTER TABLE `tblstuffdescription`
+  ADD CONSTRAINT `tblStuffDescription_ibfk_1` FOREIGN KEY (`StuffID`) REFERENCES `tblstuff` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tblStuffDescription_ibfk_2` FOREIGN KEY (`MemberID`) REFERENCES `tblmemberregistration` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tblstuffimages`
+--
+ALTER TABLE `tblstuffimages`
+  ADD CONSTRAINT `tblStuffImages_ibfk_1` FOREIGN KEY (`StuffID`) REFERENCES `tblstuff` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;

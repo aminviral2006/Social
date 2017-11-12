@@ -1,0 +1,308 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="rtl" lang="he" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Edit Member Profile</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="refresh" content="5; URL=EditMemberProfile.php?profileid="<?php echo $_REQUEST['profileid']."&member=".$_REQUEST['member'].""?>/>
+        <style type="text/css">
+            body
+            {
+                background-color: #495863;
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+            }
+            div#dvMain
+            {
+                padding: 0;
+                margin: 0 auto;
+                width: 982px;
+                height: auto;
+                background-color: #FFFFFF;
+                border-style: solid;
+                border-width: thick;
+                border-color:#1c2e3c;
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+                font-size: 12px;
+                margin-left: 10%;
+                margin-right: 10%;
+            }
+            #dvBanner
+            {
+                position: relative;
+                width: 100%;
+                height: 125px;
+                display:block;
+                padding: 0px;
+                background-image: url(../images/logoheader.jpg);
+                background-repeat: no-repeat;
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+            }
+            #dvLogin
+            {
+                position: relative;
+                float: left;
+                display: block;
+                top: 30px;
+                left: 390px;
+                color: white;
+                font-size: 14px;
+                font-weight: bold;
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+            }
+            #dvLogin a
+            {
+                text-decoration: none;
+                color:white;
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+            }
+            #dvLogin a:hover
+            {
+                text-decoration: underline;
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+            }
+            .spNotAMember
+            {
+                color: #f9c60b;
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+            }
+            #dvMenuStrip
+            {
+                position: relative;
+                top: 80px;
+                width: 982px;
+                height: 30px;
+                z-index: 3;
+                display:block;
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+            }
+            #dvMenuContents
+            {
+                position: relative;
+                width: 982px;
+                top: 3px;
+                left: 300px;
+                float: right;
+                color: black;
+                display: block;
+                font-size: 15px;
+                font-weight: bold;
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+            }
+            #dvMenuContents a
+            {
+                text-decoration: none;
+                color: black;
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+            }
+            #dvMenuContents a:hover
+            {
+                color: white;
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+            }
+            #dvBrowseStuff
+            {
+                position: absolute;
+                float: left;
+                top: 1px;
+                display: block;
+                left: 10px;
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+            }
+            #dvAddStuffButton
+            {
+                position: absolute;
+                float:left;
+                top: 1px;
+                left: 150px;
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+            }
+            #dvBrowseOrAddNewStuff
+            {
+                display: block;
+                float: left;
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+            }
+            #dvMessage
+            {
+                width: 980px;
+                visibility: hidden;
+                height:15px;
+                display: none;
+                text-align: right;
+                color:brown;
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+                font-size: 12px;
+                background-color: #B8ADF1;
+            }
+            #dvAddStuff
+            {
+                /*position: absolute;
+                top:100px;
+                left:2px;*/
+                visibility: hidden;
+                width: 980px;
+                height: auto;
+                z-index: 4;
+                border-style: solid;
+                border-width: thin;
+                border-color:#1b4376;
+                margin-left:auto;
+                margin-right:auto;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                display:none; /*Maha Gilinder*/
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+            }
+            #dvProfile
+            {
+                /*position: absolute;
+                top:100px;
+                left:2px;*/
+                width: 980px;
+                height: auto;
+                z-index: 4;
+                margin-left:auto;
+                margin-right:auto;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                display:table; /*Maha Gilinder*/
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+            }
+            div#dvFooter
+            {
+                width: 982px;
+                z-index: 4;
+                padding-top: 20px;
+                display:block;
+                padding: 4px;
+                direction: rtl;
+                text-align: center;
+                font-size: 13px;
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+                color: #FFFFFF;
+                margin-left: auto;
+                margin-right: auto;
+
+            }
+            #dvFooter a
+            {
+                font-size: 13px;
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+                color: #FFFFFF;
+                text-decoration: none;
+            }
+            #dvFooter a:hover
+            {
+                text-decoration: underline;
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+            }
+            .table
+            {
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+                font-size: 12px;
+                border-style: solid;
+                border-width: thin;
+                border: none;
+            }
+        </style>
+        <script type="text/javascript" language="JavaScript">
+            var i=1;
+            String.prototype.trim = function()
+            {
+                return this.replace(/(?:(?:^|\n)\s+|\s+(?:$|\n))/g,"");
+            }
+
+            function TrimTextArea()
+            {
+                document.getElementById("tarabout").value.trim();
+            }
+            function StuffValid()
+            {
+                if(document.frmaddstuff.txtStuffname.value.trim()=="")
+                {
+                    document.getElementById("dvMessage").style.visibility="visible";
+                    document.getElementById("dvMessage").style.display="block";
+                    return false;
+                }
+                else
+                    return true;
+            }
+
+            function DisplayAddStuff()
+            {
+                if(i==1)
+                {
+                    document.getElementById("dvAddStuff").style.visibility="visible";
+                    document.getElementById("dvAddStuff").style.display="table";
+                    i=0;
+                }
+                else
+                {
+                    document.getElementById("dvAddStuff").style.visibility="hidden";
+                    document.getElementById("dvAddStuff").style.display="none";
+                    i=1;
+                }
+            }
+        </script>
+    </head>
+    <body onload="TrimTextArea();">
+        <div id="dvMain" align="center">
+            <div id="dvBanner">
+                <div id="dvLogin">
+                    <a href="../logout.php" title="Logout"> logout </a> |
+                    <a href="comments.php?profileid=<?php echo $_SESSION['memberid']; ?>&member=<?php echo $_SESSION['member']; ?>" title="Comments"> comments </a>|
+                    <a href="stuffs.php?page=1&ipp=20&profileid=<?php echo $_SESSION['memberid']; ?>&member=<?php echo $_SESSION['member']; ?>" title="Stuffs"> stuff </a> |
+                    <a href="profile.php?profileid=<?php echo $_SESSION['memberid']; ?>&member=<?php echo $_SESSION['member']; ?>" title="Member Profile"><?php echo $_SESSION['member']; ?></a>
+                    <div style="clear: both;"></div>
+                </div>
+                <div style="clear: both;"></div>
+                <div id="dvMenuStrip">
+                    <div id='dvMenuContents'>
+                        <a href="../index.php" title="HOME"><?php echo HOME_MENU; ?></a> <a href="../faq.php" title="FAQ"><?php echo FAQ; ?></a>
+                    </div>
+                    <form id="frmAddStuff" name="frmSearch" method="post" action="">
+                        <span style='font-size: 1px;'>&nbsp;</span>
+                        <div id="dvAddStuffButton">
+                            <a href="#" onclick="DisplayAddStuff();"> <img id="btnAddStuff" name="btnAddStuff" src='../images/AddStuff.png' width='175px' height='24px' alt='' border="0"/></a>
+                        </div>
+                        <div id="dvBrowseStuff">
+                            <a href="../Stuff/BrowseStuff.php?page=1&ipp=20"><img id="btnBrowser" name="btnBrowse" src='../images/BrowseStuff.png' width='130px' height='24px' alt='' border="0"/></a>
+                        </div>
+                    </form>
+                    <div style="clear: both;"></div>
+                </div>
+            </div>
+            <span style='font-size: 1px;'>&nbsp;</span>
+            <!--Add Stuff Section-->
+            <div id="dvAddStuff"><span style='font-size: 1px;'>&nbsp;</span>
+                <form action="../Stuff/AddMyStuff.php" method="POST" name="frmaddstuff" onsubmit="return StuffValid();">
+                    <table class="table" align="Right" width="300px">
+                        <tr>
+                            <td colspan="2">Stuff Title:</td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" id="txtStuffname" name="txtStuffname" size="40"/></td>
+                            <td align="left"><input type="submit" name="submit" id="submit" value="Add"/></td>
+                        </tr>
+                    </table>
+                </form>
+                <div style="float: left;"><a href='#' onclick="DisplayAddStuff();">Close</a></div>
+            </div>            
+            <!--Edit Profile Section-->
+            <div id="dvProfile">
+                Your Profile has been updated successfully. <br>
+                You will be redirected to Profile page automatically.
+            </div>
+            <span style='font-size: 1px;'>&nbsp;</span>
+        </div>
+        <div id='dvFooter' align="center">
+            <!--<a href="#">home |</a> <a href="#">faq |</a>
+            <a href="#">privacy policy |</a> <a href="#">term and conditions |</a>
+            <a href="#">contact us |</a> <a href="#">rss feed |</a> <a href="#">bookmark this page</a><br/>
+            Copyright &copy;2010 Avigabso. Designed & Developed by <a href="http://themacrosoft.com">Macrosoft Solutions</a>-->
+	    <?php include_once '../footers.php' ?>
+        </div>
+    </body>
+</html>

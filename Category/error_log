@@ -1,0 +1,13 @@
+[06-Jul-2011 15:21:23] PHP Warning:  mysql_fetch_assoc(): supplied argument is not a valid MySQL result resource in /home/aminhosp/public_html/social/Administrator/Classes/MySQLConnection.php on line 108
+[06-Jul-2011 15:21:23] PHP Warning:  mysql_fetch_assoc(): supplied argument is not a valid MySQL result resource in /home/aminhosp/public_html/social/Administrator/Classes/MySQLConnection.php on line 108
+[06-Jul-2011 15:21:23] PHP Warning:  mysql_fetch_assoc(): supplied argument is not a valid MySQL result resource in /home/aminhosp/public_html/social/Administrator/Classes/MySQLConnection.php on line 108
+[06-Jul-2011 15:21:23] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home/aminhosp/public_html/social/Administrator/BLL/BllStuff.php on line 569
+[06-Jul-2011 15:21:23] PHP Warning:  mysql_fetch_assoc(): supplied argument is not a valid MySQL result resource in /home/aminhosp/public_html/social/Administrator/Classes/MySQLConnection.php on line 108
+[06-Jul-2011 15:21:23] PHP Warning:  mysql_fetch_assoc(): supplied argument is not a valid MySQL result resource in /home/aminhosp/public_html/social/Administrator/Classes/MySQLConnection.php on line 108
+[06-Jul-2011 15:21:23] PHP Warning:  mysql_fetch_assoc(): supplied argument is not a valid MySQL result resource in /home/aminhosp/public_html/social/Administrator/Classes/MySQLConnection.php on line 108
+[06-Jul-2011 15:21:23] PHP Warning:  mysql_fetch_assoc(): supplied argument is not a valid MySQL result resource in /home/aminhosp/public_html/social/Administrator/Classes/MySQLConnection.php on line 108
+[19-Sep-2011 14:37:20] PHP Fatal error:  Cannot use string offset as an array in /home/aminhosp/public_html/social/Category/BrowseCategory.php on line 811
+[21-Sep-2011 04:19:09] PHP Warning:  Division by zero in /home/aminhosp/public_html/social/administrator/Classes/paginator.class.php on line 45
+[21-Sep-2011 04:19:09] PHP Warning:  mysql_fetch_assoc(): supplied argument is not a valid MySQL result resource in /home/aminhosp/public_html/social/administrator/Classes/MySQLConnection.php on line 108
+[21-Sep-2011 04:19:10] PHP Warning:  Division by zero in /home/aminhosp/public_html/social/administrator/Classes/paginator.class.php on line 45
+[21-Sep-2011 04:19:10] PHP Warning:  mysql_fetch_assoc(): supplied argument is not a valid MySQL result resource in /home/aminhosp/public_html/social/administrator/Classes/MySQLConnection.php on line 108

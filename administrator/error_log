@@ -1,0 +1,3 @@
+[17-Jul-2011 04:11:38] PHP Warning:  mysql_fetch_assoc(): supplied argument is not a valid MySQL result resource in /home/aminhosp/public_html/social/administrator/Classes/MySQLConnection.php on line 108
+[17-Jul-2011 04:15:22] PHP Warning:  mysql_fetch_assoc(): supplied argument is not a valid MySQL result resource in /home/aminhosp/public_html/social/administrator/Classes/MySQLConnection.php on line 108
+[17-Jul-2011 04:22:56] PHP Warning:  mysql_fetch_assoc(): supplied argument is not a valid MySQL result resource in /home/aminhosp/public_html/social/administrator/Classes/MySQLConnection.php on line 108
